@@ -26,16 +26,36 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#">Authentication</a></li>
-              <li><a href="#">My Movies</a></li>
-              <li><a href="#">Search</a></li>
+              <li id="authBtn"><a href="#">Authentication</a></li>
+              <li id="myMoviesBtn"><a href="#">My Movies</a></li>
+              <li id="searchBtn" class="active"><a href="#">Search</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
       </nav>
     </header>
 
-    <main></main>
+    <main>
+      <div id="myMovies" class="hide text-center">
+        <h1>My Movies</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+
+      <div id="authScreen" class="hide text-center">
+        <h1>Sign In</h1>
+      </div>
+
+      <div id="search" class="text-center">
+        <h1>Search Movies</h1>
+
+        <div class="input-group col-sm-6 col-sm-offset-3">
+          <span class="input-group-addon glyphicon glyphicon-search" id="basic-addon1"></span>
+          <input type="text" class="form-control" placeholder="Star Wars" aria-describedby="basic-addon1">
+        </div>
+      </div>
+
+
+    </main>
 
     <footer></footer>
     <!-- Latest compiled and minified CSS -->

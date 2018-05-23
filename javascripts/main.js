@@ -1,3 +1,3 @@
-const initializer = require('./events');
+const events = require('./events');
 
-initializer();
+events.initializer();

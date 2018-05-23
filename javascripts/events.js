@@ -1,3 +1,5 @@
+const tmdb = require('./tmdb');
+
 const showSearch = () => {
   $('#myMovies').addClass('hide');
   $('#authScreen').addClass('hide');
@@ -36,7 +38,18 @@ const bindEvents = () => {
   });
 };
 
-module.exports = bindEvents;
+const pressEnter = () => {
+  tmdb.showResults();
+};
+
+const initializer = () => {
+  bindEvents();
+  pressEnter();
+};
+
+module.exports = {
+  initializer,
+};
 
 // const myLinks = () => {
 //   $(document).click((e) => {

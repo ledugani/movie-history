@@ -1,3 +1,7 @@
-body {
+#body {
   background-color: palevioletred;
+}
+
+#nav {
+  border-radius: 0;
 }

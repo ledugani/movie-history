@@ -1,7 +1,15 @@
 {
   "apiKeys": {
     "tmdb": {
-      "apiKey": "################"
+      "apiKey": "#############"
+    },
+    "firebase": {
+      "apiKey": "########-###-##########################",
+      "authDomain": "project-id.firebaseapp.com",
+      "databaseURL": "https://project-id.firebaseio.com",
+      "projectId": "#####",
+      "storageBucket": "project-id.appspot.com",
+      "messagingSenderId": "###"
     }
   }
 }

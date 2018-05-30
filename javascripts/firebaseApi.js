@@ -20,7 +20,30 @@ const saveMovieToWishlist = (newMovie) => {
   });
 };
 
+const getAllMovies = () => {
+  return new Promise((resolve, reject) => {
+    const allMoviesArray = [];
+    $.ajax({
+      method: 'GET',
+      url: `${firebaseConfig.databaseURL}/movies.json`,
+    })
+      .done((allMoviesObj) => {
+        if (allMoviesObj !== null) {
+          Object.keys(allMoviesObj).forEach((fbkey) => {
+            allMoviesObj[fbkey].id = fbkey;
+            allMoviesArray.push(allMoviesObj[fbkey]);
+          });
+        }
+        resolve(allMoviesArray);
+      })
+      .fail((error) => {
+        reject(error);
+      });
+  });
+};
+
 module.exports = {
   saveMovieToWishlist,
   setConfig,
+  getAllMovies,
 };

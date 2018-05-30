@@ -9,6 +9,7 @@ const domString = (movieArray, config, whereToPrint) => {
     strang +=   `<img data-poster="${movie.poster_path}" src="${config.base_url}/w342/${movie.poster_path}" alt="Movie Poster">`;
     strang +=   `<div class="caption">`;
     strang +=     `<h3 class="movie-title">${movie.original_title ? movie.original_title : movie.title}</h3>`;
+    strang +=     `<h5 class="release-date">${movie.release_date}</h5>`;
     strang +=     `<p class="movie-overview">${movie.overview}</p>`;
     strang +=     `<p><a href="#" class="btn btn-primary" role="button">Review</a> <a class="btn btn-default addMovieToWishlist" role="button">Wishlist</a></p>`;
     strang +=   `</div>`;

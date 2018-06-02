@@ -42,6 +42,50 @@ const getAllMovies = () => {
   });
 };
 
+const getWatchedMovies = () => {
+  return new Promise((resolve, reject) => {
+    const allMoviesArray = [];
+    $.ajax({
+      method: 'GET',
+      url: `${firebaseConfig.databaseURL}/movies.json?orderBy="isWatched"&equalTo=true`,
+    })
+      .done((allMoviesObj) => {
+        if (allMoviesObj !== null) {
+          Object.keys(allMoviesObj).forEach((fbkey) => {
+            allMoviesObj[fbkey].id = fbkey;
+            allMoviesArray.push(allMoviesObj[fbkey]);
+          });
+        }
+        resolve(allMoviesArray);
+      })
+      .fail((error) => {
+        reject(error);
+      });
+  });
+};
+
+const getWishlistMovies = () => {
+  return new Promise((resolve, reject) => {
+    const allMoviesArray = [];
+    $.ajax({
+      method: 'GET',
+      url: `${firebaseConfig.databaseURL}/movies.json?orderBy="isWatched"&equalTo=false`,
+    })
+      .done((allMoviesObj) => {
+        if (allMoviesObj !== null) {
+          Object.keys(allMoviesObj).forEach((fbkey) => {
+            allMoviesObj[fbkey].id = fbkey;
+            allMoviesArray.push(allMoviesObj[fbkey]);
+          });
+        }
+        resolve(allMoviesArray);
+      })
+      .fail((error) => {
+        reject(error);
+      });
+  });
+};
+
 const deleteMovieFromDb = (movieId) => {
   return new Promise((resolve, reject) => {
     $.ajax({
@@ -77,6 +121,8 @@ module.exports = {
   saveMovieToWishlist,
   setConfig,
   getAllMovies,
+  getWatchedMovies,
+  getWishlistMovies,
   deleteMovieFromDb,
   updateMovieToWatchedInDb,
 };

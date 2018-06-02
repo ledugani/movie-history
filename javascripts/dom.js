@@ -5,9 +5,9 @@ const domString = (movieArray, config, whereToPrint, myCollectionMode = false) =
       strang += `<div class="row">`;
     }
     strang += `<div class="col-sm-6 col-md-4">`;
-    strang +=  `<div class="thumbnail movie">`;
+    strang +=  `<div class="thumbnail movie" data-firebase-id="${movie.id}">`;
     if (myCollectionMode) {
-      strang += `<a class="btn deleteMovie">&#10005;</a>`;
+      strang += `<a class="btn deleteMovieFromCollectionEvent">&#10005;</a>`;
     }
     strang +=   `<img data-poster="${movie.poster_path}" src="${config.base_url}/w342/${movie.poster_path}" alt="Movie Poster">`;
     strang +=   `<div class="caption">`;

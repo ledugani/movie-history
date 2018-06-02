@@ -2,6 +2,7 @@
 
 const tmdb = require('./tmdb');
 const firebaseApi = require('./firebaseApi');
+const dom = require('./dom');
 
 const showSearch = () => {
   $('#myMovies').addClass('hide');
@@ -32,6 +33,7 @@ const bindEvents = () => {
     $('.active').removeClass('active');
     $('#myMoviesBtn').addClass('active');
     showMyMovies();
+    getAllMoviesEvent();
   });
 
   $('#authBtn').on('click', () => {
@@ -70,6 +72,16 @@ const saveMovieToWishListEvent = () => {
   });
 };
 
+const getAllMoviesEvent = () => {
+  firebaseApi.getAllMovies()
+    .then((moviesArray) => {
+      dom.domString(moviesArray, tmdb.getImageConfig(), 'savedMovies', true);
+    })
+    .catch((error) => {
+      console.error('error in get all movies', error);
+    });
+};
+
 const initializer = () => {
   bindEvents();
   pressEnter();
@@ -86,14 +98,21 @@ module.exports = {
 //       $('#myMovies').addClass('hide');
 //       $('#search').addClass('hide');
 //       $('#authScreen').removeClass('hide');
+//       $('.active').removeClass('active');
+//       $('#authBtn').addClass('active');
 //     } else if (e.target.id === 'myMoviesBtn') {
 //       $('#myMovies').removeClass('hide');
 //       $('#search').addClass('hide');
 //       $('#authScreen').addClass('hide');
+//       $('.active').removeClass('active');
+//       $('#myMoviesBtn').addClass('active');
+//       getAllMoviesEvent();
 //     } else if (e.target.id === 'searchBtn') {
 //       $('#myMovies').addClass('hide');
 //       $('#search').removeClass('hide');
 //       $('#authScreen').addClass('hide');
+//       $('.active').removeClass('active');
+//       $('#searchBtn').addClass('active');
 //     }
 //   });
 // };

@@ -26,9 +26,9 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li id="authBtn"><a href="#">Authentication</a></li>
+            <li id="authBtn" class="active"><a href="#">Authentication</a></li>
             <li id="myMoviesBtn"><a href="#">My Movies</a></li>
-            <li id="searchBtn" class="active"><a href="#">Search</a></li>
+            <li id="searchBtn"><a href="#">Search</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -43,11 +43,67 @@
       <div id="savedMovies"></div>
     </div>
 
-    <div id="authScreen" class="hide text-center">
-      <h1>Sign In</h1>
+    <div id="authScreen" class="text-center">
+      <div id="login-form">
+        <h1 class="text-center">Sign In</h1>
+        <form class="form-horizontal col-sm-4 col-sm-offset-4 col-xs-8 col-xs-offset-2">
+          <div class="form-group">
+            <label for="inputEmail" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword" class="col-sm-2 control-label">Password</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" id="sign-in-btn" class="btn btn-default">Sign in</button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <a href="#" id="register-link">Sign Up</a>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div id="registration-form" class="hide">
+        <h1 class="text-center">Sign Up</h1>
+        <form class="form-horizontal col-sm-4 col-sm-offset-4 col-xs-8 col-xs-offset-2">
+          <div class="form-group">
+            <label for="newUserEmail" class="col-sm-2 control-label">Email</label>
+            <div class="col-sm-10">
+              <input type="email" class="form-control" id="newUserEmail" placeholder="Email">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="newUserPassword" class="col-sm-2 control-label">Password</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" id="newUserPassword" placeholder="Password">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" id="register-btn" class="btn btn-default">Register</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <a href="#" id="sign-in-link">Go to Login</a>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
 
-    <div id="search" class="text-center">
+    <div id="search" class=" hide text-center">
       <h1>Search Movies</h1>
 
       <div class="input-group col-sm-6 col-sm-offset-3">

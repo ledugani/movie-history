@@ -106,9 +106,6 @@ const deleteMovieFromFirebase = () => {
   $(document).on('click', '.deleteMovieFromCollectionEvent', (e) => {
     const movieToDeleteId = $(e.target).closest('.movie').data('firebaseId');
     firebaseApi.deleteMovieFromDb(movieToDeleteId)
-      .then(() => {
-        getAllMoviesEvent();
-      })
       .catch((error) => {
         console.error('could not reprint from db: ', error);
       });
@@ -178,6 +175,22 @@ const authEvents = () => {
     $('#login-form').removeClass('hide');
     $('#registration-form').addClass('hide');
   });
+
+  $('#logout').click(() => {
+    firebase.auth().signOut()
+      .then(() => {
+        // Sign-out successful.
+        $('#myMovies').addClass('hide');
+        $('#authScreen').removeClass('hide');
+        $('#search').addClass('hide');
+        $('.active').removeClass('active');
+        $('#authBtn').addClass('active');
+      })
+      .catch((error) => {
+        // An error happened.
+        console.error('an error occurred when signing out', error);
+      });
+  });
 };
 
 const initializer = () => {
@@ -192,6 +205,8 @@ const initializer = () => {
 
 module.exports = {
   initializer,
+  getAllMoviesEvent,
+  showMyMovies,
 };
 
 // const myLinks = () => {
